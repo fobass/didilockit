@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — QuickDo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #07070e;
+      --bg2:    #0c0c1a;
+      --border: rgba(255,255,255,0.07);
+      --border2:rgba(255,255,255,0.12);
+      --cyan:   #5de0e6;
+      --white:  #eeeef5;
+      --muted:  rgba(238,238,245,0.42);
+      --muted2: rgba(238,238,245,0.22);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--white);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; inset-inline: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(7,7,14,0.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em; color: var(--white); text-decoration: none; }
+    .logo em { font-style: normal; color: var(--cyan); }
+    .nav-back { font-size: .875rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .nav-back:hover { color: var(--white); }
+
+    /* HERO */
+    .page-hero {
+      padding: 140px 24px 72px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(93,224,230,.07), transparent 65%);
+      pointer-events: none;
+    }
+    .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(93,224,230,.18); background: rgba(93,224,230,.05);
+      color: var(--cyan); font-size: .75rem; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; padding: 7px 18px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.04em; line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .page-hero p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .updated {
+      display: inline-block; margin-top: 16px;
+      font-size: .78rem; color: var(--muted2);
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 100px;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 760px; margin: 0 auto; padding: 0 24px 120px;
+    }
+
+    /* TOC */
+    .toc {
+      background: rgba(93,224,230,.04); border: 1px solid rgba(93,224,230,.12);
+      border-radius: 20px; padding: 28px 32px; margin-bottom: 56px;
+    }
+    .toc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 8px; }
+    .toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 10px; }
+    .toc ol li::before { content: counter(toc,decimal-leading-zero); font-size: .72rem; color: var(--cyan); font-weight: 600; flex-shrink: 0; }
+    .toc ol li a { font-size: .88rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .toc ol li a:hover { color: var(--white); }
+
+    /* SECTIONS */
+    .policy-section { margin-bottom: 56px; scroll-margin-top: 90px; }
+    .policy-section h2 {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1.3rem; letter-spacing: -.02em;
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sec-num {
+      font-size: .72rem; font-weight: 600; color: var(--cyan);
+      background: rgba(93,224,230,.1); border: 1px solid rgba(93,224,230,.2);
+      padding: 3px 9px; border-radius: 100px; flex-shrink: 0;
+    }
+    .policy-section p { color: rgba(238,238,245,.7); font-size: .93rem; line-height: 1.85; margin-bottom: 14px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    .policy-section ul li { display: flex; align-items: flex-start; gap: 10px; font-size: .93rem; color: rgba(238,238,245,.7); line-height: 1.7; }
+    .policy-section ul li::before { content: '–'; color: var(--cyan); flex-shrink: 0; margin-top: 1px; }
+
+    /* Highlight box */
+    .highlight {
+      background: rgba(93,224,230,.05); border: 1px solid rgba(93,224,230,.14);
+      border-radius: 14px; padding: 18px 22px; margin: 18px 0;
+      font-size: .9rem; color: rgba(238,238,245,.75); line-height: 1.75;
+    }
+    .highlight strong { color: var(--cyan); font-weight: 500; }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 28px 32px; margin-top: 18px;
+    }
+    .contact-card p { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+    .contact-card a { color: var(--cyan); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 52px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--white); text-decoration: none; }
+    .footer-logo em { font-style: normal; color: var(--cyan); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: var(--muted2); font-size: .82rem; }
+
+    @media(max-width:600px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 28px 20px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Quick<em>Do</em></a>
+  <a class="nav-back" href="index.html">← Back to home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-tag">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p>How we collect, use, and protect your information.</p>
+  <div class="updated">Last updated: January 8, 2026</div>
+</div>
+
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#collect">Information We Collect</a></li>
+      <li><a href="#use">How We Use Your Information</a></li>
+      <li><a href="#sharing">Information Sharing</a></li>
+      <li><a href="#storage">Data Storage & Security</a></li>
+      <li><a href="#ondevice">On-Device Processing</a></li>
+      <li><a href="#ai">AI & Third-Party Services</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#rights">Your Rights</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="policy-section" id="overview">
+    <h2><span class="sec-num">01</span> Overview</h2>
+    <div class="highlight">
+      <strong>Short version:</strong> QuickDo transcribes your voice on your device. Your audio never leaves your iPhone unless you choose to use our AI features. We don't sell your data — ever.
+    </div>
+    <p>QuickDo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use the QuickDo iOS application.</p>
+    <p>By using QuickDo, you agree to the practices described in this policy. If you do not agree, please discontinue use of the app.</p>
+  </div>
+
+  <div class="policy-section" id="collect">
+    <h2><span class="sec-num">02</span> Information We Collect</h2>
+    <p>We collect only what is necessary to provide the service:</p>
+    <ul>
+      <li><strong style="color:var(--white)">Voice recordings</strong> — Audio you record within the app, stored locally on your device.</li>
+      <li><strong style="color:var(--white)">Transcripts</strong> — Text generated from your voice, processed on-device via Apple Speech Recognition.</li>
+      <li><strong style="color:var(--white)">App preferences</strong> — Settings like preferred language and output type, stored locally.</li>
+      <li><strong style="color:var(--white)">Purchase information</strong> — Handled entirely by Apple via In-App Purchase. We never see your payment details.</li>
+      <li><strong style="color:var(--white)">Crash reports</strong> — Anonymous diagnostic data if you opt in through iOS settings.</li>
+    </ul>
+    <p>We do not collect your name, email address, location, contacts, or any other personal identifiers unless you voluntarily provide them when contacting us for support.</p>
+  </div>
+
+  <div class="policy-section" id="use">
+    <h2><span class="sec-num">03</span> How We Use Your Information</h2>
+    <p>Information collected is used solely to:</p>
+    <ul>
+      <li>Provide and improve the QuickDo app experience</li>
+      <li>Process your voice recordings into transcripts and AI-generated text</li>
+      <li>Save your recording history and preferences on your device</li>
+      <li>Diagnose bugs and improve app stability (crash reports only)</li>
+      <li>Respond to support requests you initiate</li>
+    </ul>
+    <p>We do not use your content for advertising, profiling, or any purpose beyond providing the service you requested.</p>
+  </div>
+
+  <div class="policy-section" id="sharing">
+    <h2><span class="sec-num">04</span> Information Sharing</h2>
+    <div class="highlight">
+      <strong>We do not sell, rent, or trade your personal information to any third party.</strong>
+    </div>
+    <p>We may share limited data only in these circumstances:</p>
+    <ul>
+      <li><strong style="color:var(--white)">AI processing (opt-in)</strong> — If you use AI output features, your transcript text is sent to our server and processed via OpenAI's API. Your audio is never transmitted.</li>
+      <li><strong style="color:var(--white)">Legal requirements</strong> — If required by law, court order, or government authority.</li>
+      <li><strong style="color:var(--white)">Business transfer</strong> — In the event of a merger or acquisition, under the same privacy commitments.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="storage">
+    <h2><span class="sec-num">05</span> Data Storage & Security</h2>
+    <p>All recordings and transcripts are stored locally on your device using iOS standard file storage. We do not maintain a cloud backup of your recordings.</p>
+    <p>When AI processing is used, transcript text is transmitted over encrypted HTTPS connections and is not retained on our servers after your result is returned.</p>
+    <p>You can delete all your recordings and data at any time from within the app via Settings → Clear All Recordings.</p>
+  </div>
+
+  <div class="policy-section" id="ondevice">
+    <h2><span class="sec-num">06</span> On-Device Processing</h2>
+    <div class="highlight">
+      <strong>Your voice never leaves your device</strong> during transcription. QuickDo uses Apple's on-device Speech Recognition framework, which processes audio locally without sending it to Apple's servers (when the on-device model is available).
+    </div>
+    <p>This means your voice recordings remain private by default. The only exception is when you explicitly choose to use AI output features (Summary, Email, Tweet, etc.), at which point your transcript — not your audio — is sent for processing.</p>
+  </div>
+
+  <div class="policy-section" id="ai">
+    <h2><span class="sec-num">07</span> AI & Third-Party Services</h2>
+    <p>QuickDo uses the following third-party services:</p>
+    <ul>
+      <li><strong style="color:var(--white)">Apple Speech Recognition</strong> — On-device transcription. Governed by Apple's Privacy Policy.</li>
+      <li><strong style="color:var(--white)">OpenAI API</strong> — Used for AI output generation (opt-in only). Transcript text is sent to OpenAI when you request AI processing. OpenAI's data usage policies apply. We use API access, which means your data is not used to train OpenAI models under their current API terms.</li>
+      <li><strong style="color:var(--white)">Apple In-App Purchase</strong> — Handles all payment processing. We never receive your financial data.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="children">
+    <h2><span class="sec-num">08</span> Children's Privacy</h2>
+    <p>QuickDo is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately and we will delete it.</p>
+  </div>
+
+  <div class="policy-section" id="rights">
+    <h2><span class="sec-num">09</span> Your Rights</h2>
+    <p>Since we store data locally on your device, you have full control:</p>
+    <ul>
+      <li><strong style="color:var(--white)">Access</strong> — All your data is visible within the app at all times.</li>
+      <li><strong style="color:var(--white)">Deletion</strong> — Delete individual recordings or all data via Settings → Clear All Recordings.</li>
+      <li><strong style="color:var(--white)">Portability</strong> — Transcripts can be copied and exported from within the app.</li>
+      <li><strong style="color:var(--white)">Opt-out</strong> — You can use QuickDo entirely without AI features, keeping all processing on-device.</li>
+    </ul>
+    <p>For any other privacy requests, contact us at the address below.</p>
+  </div>
+
+  <div class="policy-section" id="changes">
+    <h2><span class="sec-num">10</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page and notify you via an in-app notice for significant changes.</p>
+    <p>Continued use of QuickDo after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="policy-section" id="contact">
+    <h2><span class="sec-num">11</span> Contact Us</h2>
+    <p>Have questions about this Privacy Policy or how we handle your data?</p>
+    <div class="contact-card">
+      <p>📧 Email: <a href="mailto:privacy@quickdo.app">privacy@quickdo.app</a></p>
+      <p>🌐 Website: <a href="index.html">quickdo.app</a></p>
+      <p style="margin-top:14px;font-size:.82rem;color:var(--muted2);">We aim to respond to all privacy inquiries within 72 hours.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html">Quick<em>Do</em></a>
+  <p class="footer-copy">© 2025 QuickDo. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:hello@quickdo.app">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

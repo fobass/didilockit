@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — QuickDo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #07070e;
+      --bg2:    #0c0c1a;
+      --border: rgba(255,255,255,0.07);
+      --border2:rgba(255,255,255,0.12);
+      --cyan:   #5de0e6;
+      --gold:   #f5c842;
+      --white:  #eeeef5;
+      --muted:  rgba(238,238,245,0.42);
+      --muted2: rgba(238,238,245,0.22);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--white);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    nav {
+      position: fixed; top: 0; inset-inline: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(7,7,14,0.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em; color: var(--white); text-decoration: none; }
+    .logo em { font-style: normal; color: var(--cyan); }
+    .nav-back { font-size: .875rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .nav-back:hover { color: var(--white); }
+
+    .page-hero {
+      padding: 140px 24px 72px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(245,200,66,.06), transparent 65%);
+      pointer-events: none;
+    }
+    .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(245,200,66,.18); background: rgba(245,200,66,.05);
+      color: var(--gold); font-size: .75rem; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; padding: 7px 18px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.04em; line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .page-hero p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .updated {
+      display: inline-block; margin-top: 16px;
+      font-size: .78rem; color: var(--muted2);
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 100px;
+    }
+
+    .content { max-width: 760px; margin: 0 auto; padding: 0 24px 120px; }
+
+    .toc {
+      background: rgba(245,200,66,.04); border: 1px solid rgba(245,200,66,.12);
+      border-radius: 20px; padding: 28px 32px; margin-bottom: 56px;
+    }
+    .toc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 8px; }
+    .toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 10px; }
+    .toc ol li::before { content: counter(toc,decimal-leading-zero); font-size: .72rem; color: var(--gold); font-weight: 600; flex-shrink: 0; }
+    .toc ol li a { font-size: .88rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .toc ol li a:hover { color: var(--white); }
+
+    .policy-section { margin-bottom: 56px; scroll-margin-top: 90px; }
+    .policy-section h2 {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1.3rem; letter-spacing: -.02em;
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sec-num {
+      font-size: .72rem; font-weight: 600; color: var(--gold);
+      background: rgba(245,200,66,.1); border: 1px solid rgba(245,200,66,.2);
+      padding: 3px 9px; border-radius: 100px; flex-shrink: 0;
+    }
+    .policy-section p { color: rgba(238,238,245,.7); font-size: .93rem; line-height: 1.85; margin-bottom: 14px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    .policy-section ul li { display: flex; align-items: flex-start; gap: 10px; font-size: .93rem; color: rgba(238,238,245,.7); line-height: 1.7; }
+    .policy-section ul li::before { content: '–'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+    .highlight {
+      background: rgba(245,200,66,.05); border: 1px solid rgba(245,200,66,.14);
+      border-radius: 14px; padding: 18px 22px; margin: 18px 0;
+      font-size: .9rem; color: rgba(238,238,245,.75); line-height: 1.75;
+    }
+    .highlight strong { color: var(--gold); font-weight: 500; }
+
+    .warn {
+      background: rgba(255,80,80,.05); border: 1px solid rgba(255,80,80,.14);
+      border-radius: 14px; padding: 18px 22px; margin: 18px 0;
+      font-size: .88rem; color: rgba(238,238,245,.65); line-height: 1.75;
+    }
+    .warn strong { color: #ff6b6b; font-weight: 500; }
+
+    .contact-card {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 28px 32px; margin-top: 18px;
+    }
+    .contact-card p { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+    .contact-card a { color: var(--gold); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 52px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--white); text-decoration: none; }
+    .footer-logo em { font-style: normal; color: var(--cyan); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: var(--muted2); font-size: .82rem; }
+
+    @media(max-width:600px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 28px 20px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Quick<em>Do</em></a>
+  <a class="nav-back" href="index.html">← Back to home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-tag">Legal</div>
+  <h1>Terms of Use</h1>
+  <p>Please read these terms carefully before using QuickDo.</p>
+  <div class="updated">Last updated: January 8, 2026</div>
+</div>
+
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#license">License to Use</a></li>
+      <li><a href="#account">No Account Required</a></li>
+      <li><a href="#purchases">Purchases & Subscriptions</a></li>
+      <li><a href="#content">Your Content</a></li>
+      <li><a href="#prohibited">Prohibited Uses</a></li>
+      <li><a href="#ai">AI Features</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#disclaimer">Disclaimers</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="policy-section" id="acceptance">
+    <h2><span class="sec-num">01</span> Acceptance of Terms</h2>
+    <p>By downloading, installing, or using the QuickDo application ("App"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+    <p>These Terms apply to all users of QuickDo, including users of the free version and Pro Lifetime purchasers.</p>
+  </div>
+
+  <div class="policy-section" id="license">
+    <h2><span class="sec-num">02</span> License to Use</h2>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use QuickDo for your personal, non-commercial purposes, subject to these Terms.</p>
+    <p>This license does not include:</p>
+    <ul>
+      <li>Copying, modifying, or distributing the App or its content</li>
+      <li>Reverse engineering or attempting to extract source code</li>
+      <li>Using the App to build a competing product or service</li>
+      <li>Reselling or sublicensing access to the App</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="account">
+    <h2><span class="sec-num">03</span> No Account Required</h2>
+    <p>QuickDo does not require you to create an account. All data is stored locally on your device. You are responsible for maintaining access to your device and any data stored on it.</p>
+    <p>We cannot recover lost recordings or settings if your device is lost, reset, or the app is deleted.</p>
+  </div>
+
+  <div class="policy-section" id="purchases">
+    <h2><span class="sec-num">04</span> Purchases & Subscriptions</h2>
+    <div class="highlight">
+      <strong>Pro Lifetime</strong> is a one-time in-app purchase that grants permanent access to all Pro features, including any features added in future updates.
+    </div>
+    <p>All purchases are processed by Apple via In-App Purchase and are subject to Apple's Terms of Service. We do not handle payment information directly.</p>
+    <ul>
+      <li><strong style="color:var(--white)">Refunds</strong> — All refund requests must be submitted to Apple. We do not issue refunds directly.</li>
+      <li><strong style="color:var(--white)">Restoration</strong> — Pro purchases can be restored on any device signed in to the same Apple ID via the "Restore Purchase" option in the app.</li>
+      <li><strong style="color:var(--white)">Price changes</strong> — The price of Pro Lifetime may change for new purchases. Existing purchasers are not affected.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="content">
+    <h2><span class="sec-num">05</span> Your Content</h2>
+    <p>You retain full ownership of all voice recordings and transcripts you create using QuickDo. We do not claim any rights over your content.</p>
+    <p>By using AI output features, you grant us a limited, temporary license to transmit your transcript text to our servers solely for the purpose of generating the AI output you requested. This license terminates immediately once the result is returned to you.</p>
+    <p>You are solely responsible for the content of your recordings and any outputs you choose to share or publish.</p>
+  </div>
+
+  <div class="policy-section" id="prohibited">
+    <h2><span class="sec-num">06</span> Prohibited Uses</h2>
+    <p>You agree not to use QuickDo to:</p>
+    <ul>
+      <li>Record conversations without the consent of all parties (where required by law)</li>
+      <li>Create, distribute, or promote illegal, harmful, or offensive content</li>
+      <li>Infringe on the intellectual property rights of others</li>
+      <li>Attempt to overload, disrupt, or gain unauthorized access to our servers</li>
+      <li>Use AI features to generate spam, misinformation, or deceptive content</li>
+      <li>Violate any applicable local, national, or international law or regulation</li>
+    </ul>
+    <div class="warn">
+      <strong>Recording laws vary by jurisdiction.</strong> In many places, it is illegal to record someone without their knowledge or consent. You are solely responsible for complying with applicable recording consent laws in your location.
+    </div>
+  </div>
+
+  <div class="policy-section" id="ai">
+    <h2><span class="sec-num">07</span> AI Features</h2>
+    <p>QuickDo's AI output features (Summary, Email, Tweet, Article, etc.) are powered by third-party AI services. By using these features, you acknowledge:</p>
+    <ul>
+      <li>AI outputs are generated automatically and may contain errors, inaccuracies, or inappropriate content</li>
+      <li>You are responsible for reviewing AI-generated content before using or sharing it</li>
+      <li>We do not guarantee the accuracy, completeness, or fitness of AI outputs for any particular purpose</li>
+      <li>AI features require an internet connection and may be unavailable during outages</li>
+    </ul>
+    <p>We reserve the right to modify, limit, or discontinue AI features at any time without notice.</p>
+  </div>
+
+  <div class="policy-section" id="ip">
+    <h2><span class="sec-num">08</span> Intellectual Property</h2>
+    <p>QuickDo, its logo, design, code, and all related materials are the intellectual property of QuickDo and are protected by applicable copyright, trademark, and other laws.</p>
+    <p>Nothing in these Terms grants you any right to use our trademarks, logos, or brand materials without prior written consent.</p>
+  </div>
+
+  <div class="policy-section" id="disclaimer">
+    <h2><span class="sec-num">09</span> Disclaimers</h2>
+    <div class="warn">
+      <strong>QuickDo is provided "as is" and "as available"</strong> without any warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
+    </div>
+    <p>We do not warrant that:</p>
+    <ul>
+      <li>The App will be error-free or uninterrupted</li>
+      <li>Transcription accuracy will meet any specific standard</li>
+      <li>AI outputs will be accurate, complete, or suitable for your purposes</li>
+      <li>The App will be compatible with all devices or iOS versions</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="liability">
+    <h2><span class="sec-num">10</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, QuickDo and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of revenue, or loss of profits, arising from your use of the App.</p>
+    <p>Our total liability to you for any claim arising from these Terms or your use of QuickDo shall not exceed the amount you paid for the App in the twelve months preceding the claim.</p>
+  </div>
+
+  <div class="policy-section" id="termination">
+    <h2><span class="sec-num">11</span> Termination</h2>
+    <p>We may suspend or terminate your access to QuickDo at any time, with or without cause, if we believe you have violated these Terms.</p>
+    <p>You may stop using the App at any time. Deleting the App from your device terminates these Terms, except for provisions that by their nature should survive termination (such as intellectual property, disclaimers, and limitation of liability).</p>
+  </div>
+
+  <div class="policy-section" id="changes">
+    <h2><span class="sec-num">12</span> Changes to Terms</h2>
+    <p>We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. For significant changes, we will notify you via an in-app notice.</p>
+    <p>Continued use of QuickDo after changes are posted constitutes your acceptance of the updated Terms.</p>
+  </div>
+
+  <div class="policy-section" id="contact">
+    <h2><span class="sec-num">13</span> Contact</h2>
+    <p>Questions about these Terms? Get in touch:</p>
+    <div class="contact-card">
+      <p>📧 Email: <a href="mailto:legal@quickdo.app">legal@quickdo.app</a></p>
+      <p>🌐 Website: <a href="index.html">quickdo.app</a></p>
+      <p style="margin-top:14px;font-size:.82rem;color:var(--muted2);">We aim to respond to all legal inquiries within 72 hours.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html">Quick<em>Do</em></a>
+  <p class="footer-copy">© 2025 QuickDo. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:hello@quickdo.app">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
